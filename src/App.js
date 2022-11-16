@@ -1,11 +1,11 @@
 import './App.scss';
-import React, { useEffect, useState, createRef } from "react";
-import { Spinner, IconButton, ComponentsProvider, Header, Tooltip } from '@looker/components';
+import React, { useEffect, useState } from "react";
+import { Spinner, IconButton, ComponentsProvider, Header } from '@looker/components';
 import { LookerEmbedSDK } from '@looker/embed-sdk';
 import {ExpandOutline} from '@styled-icons/evaicons-outline/ExpandOutline'
+const DASHBOARD_ID = 4 // CHANGEME
 
 LookerEmbedSDK.init(process.env.LOOKER_HOST, '/api/sso_auth')
-const DASHBOARD_ID = 4 // CHANGEME
 
 const LoadingElement = ({size=40}) => {
     return (
@@ -17,13 +17,13 @@ const LoadingElement = ({size=40}) => {
 
 const ExpandButton = ({fullScreen, setFullScreen}) => {
     return (
-        <Tooltip content={fullScreen ? 'Minimise' : 'Expand'}>
+        <div className={`expand-header`}>
             <IconButton
                 size='medium'
                 className='expandIcon'
-                icon={<ExpandOutline/>}
+                icon={<ExpandOutline />}
                 onClick={() => setFullScreen(!fullScreen)}/>
-        </Tooltip>
+        </div>
     )
 }
 
@@ -32,26 +32,20 @@ const App = () => {
     const [fullScreen, setFullScreen] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const [dashboard, setDashboard] = useState()
-    const dashRef = createRef()
     const dashboardTitle = 'Looker Dashboard'
-    
+
     useEffect(() => {
-        console.log("running useEffect")
-        setIsLoading(true)
-        LookerEmbedSDK.createDashboardWithId(DASHBOARD_ID)
-        .appendTo(dashRef.current)
-        .build()
-        .connect()
-        .then(setupDashboard)
-        .catch((error) => {
-          console.error('An unexpected error occurred', error)
-        })
-        setIsLoading(false)
-        return () => {
-            if (dashRef.current) {
-                return dashRef.current.innerHTML = ''
-            }
-        }
+            setIsLoading(true)
+            LookerEmbedSDK.createDashboardWithId(DASHBOARD_ID)
+            .appendTo('#dashboard-div')
+            .build()
+            .connect()
+            .then(setupDashboard)
+            .catch((error) => {
+                console.error('An unexpected error occurred', error)
+            })
+            setIsLoading(false)
+        return () =>  document.querySelector('#dashboard-div').innerHTML = ''
     }, [])
 
     const setupDashboard = (d) => {
@@ -66,7 +60,7 @@ const App = () => {
                     <ExpandButton fullScreen={fullScreen} setFullScreen={setFullScreen}/>
                     {isLoading 
                     ? <LoadingElement size={40}/>
-                    : <div id='dashboard-div' ref={dashRef}></div>
+                    : <div id='dashboard-div'></div>
                     }
                 </div>
                 </div>
