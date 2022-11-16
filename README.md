@@ -33,7 +33,8 @@ _This repository contains all of the elements needed to run a simple web applica
 * Update the value of `DASHBOARD_ID` in `src/App.js` on line 6 
 
 ## Usage
-* run `yarn develop`
+* Make sure you are in the root directory, not the `api/` directory
+* Run `yarn develop`
 * Navigate to `https://localhost:3000/` in your browser
   * Note - it's recommended to open the app in incognito mode or in a separate browser session to your normal Looker user account, as the SSO Authentication mechanism will interfere with any other Looker logins in the same session.
 
