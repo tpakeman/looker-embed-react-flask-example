@@ -14,6 +14,7 @@ _This repository contains all of the elements needed to run a simple web applica
 * pipenv
   * `brew install pipenv` or `pip3 install --user pipenv`
 * [Looker instance with Admin API3 credentials](https://github.com/looker-open-source/sdk-codegen/tree/main/python#configuring-the-sdk)
+  * Ensure you add `http://localhost:3000` to the [Embedded Domain Allowlist](https://cloud.google.com/looker/docs/admin-panel-platform-embed#embedded_domain_allowlist) and turn on 'Embed Authentication'
 
 ## Installation
 * Copy `.env.example` to `.env` and update the Looker hostname value appropriately
