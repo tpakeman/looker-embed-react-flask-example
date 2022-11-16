@@ -31,7 +31,6 @@ const ExpandButton = ({fullScreen, setFullScreen}) => {
 const App = () => {
     const [fullScreen, setFullScreen] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-    const [dashboard, setDashboard] = useState()
     const dashboardTitle = 'Looker Dashboard'
 
     useEffect(() => {
@@ -40,17 +39,13 @@ const App = () => {
             .appendTo('#dashboard-div')
             .build()
             .connect()
-            .then(setupDashboard)
+            // .then()
             .catch((error) => {
                 console.error('An unexpected error occurred', error)
             })
             setIsLoading(false)
         return () =>  document.querySelector('#dashboard-div').innerHTML = ''
     }, [])
-
-    const setupDashboard = (d) => {
-        setDashboard(d)
-    }
 
     return (
         <ComponentsProvider>
