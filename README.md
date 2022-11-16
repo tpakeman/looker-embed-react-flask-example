@@ -2,12 +2,16 @@
 _This repository contains all of the elements needed to run a simple web application containing an embedded Looker dashboard._
 
 ## Pre-requisites
+* Homebrew
+  * Not strictly required, but an easy and convenient way to install many of the packages below
+  * `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+    * Please watch the terminal output carefully and follow the additional instructions there to add homebrew to your path and install essential dependencies
 * Node
   * Linux
     * `sudo apt install nodejs && sudo apt install npm`
   * [OSX](https://nodejs.org/en/download/)
 * Yarn
-  * `npm install --global yarn`
+  * `sudo npm install --global yarn`
 * Python 3.x
   * I recommend doing this through [homebrew](https://brew.sh/)
   * `brew install python@3.10` (or whatever 3.x version you prefer)
@@ -18,8 +22,7 @@ _This repository contains all of the elements needed to run a simple web applica
 
 ## Installation
 * Copy `.env.example` to `.env` and update the Looker hostname value appropriately
-* Make a `looker.ini` file inside the `api/` directory
-  * Add the Looker admin credentials here [following these instructions](https://github.com/looker-open-source/sdk-codegen/tree/main/python#configuring-the-sdk)
+* Do the same for `api/looker.ini.example` -> copy it to `api/looker.ini` and [add Looker admin credentials here](https://github.com/looker-open-source/sdk-codegen/tree/main/python#configuring-the-sdk)
 * Edit the `api/user.json` file to populate some user data that will be used for the embedding
   * [Instructions can be found here](https://cloud.google.com/looker/docs/single-sign-on-embedding#collecting_the_necessary_looker_information)
 * Install the react dependencies

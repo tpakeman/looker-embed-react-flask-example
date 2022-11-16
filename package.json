@@ -24,7 +24,7 @@
   },
   "scripts": {
     "develop": "concurrently \"yarn start-server\" \"yarn start\"",
-    "start-server": "cd api && pipenv run python -m flask run",
+    "start-server": "cd api && pipenv run python3 -m flask run",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

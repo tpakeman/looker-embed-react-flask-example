@@ -1,0 +1,4 @@
+[Looker]
+base_url=https://my.looker.com
+client_id=foo
+client_secret=bar
