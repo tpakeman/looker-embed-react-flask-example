@@ -33,6 +33,13 @@ _This repository contains all of the elements needed to run a simple web applica
 * Navigate to `https://localhost:3000/` in your browser
   * Note - it's recommended to open the app in incognito mode or in a separate browser session to your normal Looker user account, as the SSO Authentication mechanism will interfere with any other Looker logins in the same session.
 
+## Troubleshooting
+* If you see an authentication error such as a 401 or 403 the most likely cause is because the `api/user.json` object contains invalid values - i.e. it cannot access the dashboard you are trying to embed
+  * The best way to test this is to log in to Looker and sudo as your Embedded User and see if you have access when using the Looker UI. If not check access settings such as folder permissions, model sets and permission sets
+* If this is not the issue, make sure your browser does not have restrictive Cookie settings. Looker requires third-party cookies to be enabled for the embedded application to work. These are blocked in Safari and in Chrome's incognito mode by default.
+  * [More information on changing this here](https://cloud.google.com/looker/docs/best-practices/how-to-troubleshoot-sso-embed-authentication-errors#im-getting-redirected-to-a-page-with-the-401-error-message-you-are-not-authenitcated-to-view-this-page.)
+* [More troubleshooting tools can be found here](https://community.looker.com/embedding-looker-powered-by-looker-75/sso-embed-tools-and-troubleshooting-resources-20620)
+
 ## Further reference
 * [React.js](https://reactjs.org/)
 * [Flask](https://flask.palletsprojects.com/en/2.2.x/)
