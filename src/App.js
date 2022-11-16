@@ -4,7 +4,6 @@ import { Spinner, IconButton, ComponentsProvider, Header } from '@looker/compone
 import { LookerEmbedSDK } from '@looker/embed-sdk';
 import {ExpandOutline} from '@styled-icons/evaicons-outline/ExpandOutline'
 const DASHBOARD_ID = 4 // CHANGEME
-
 LookerEmbedSDK.init(process.env.LOOKER_HOST, '/api/sso_auth')
 
 const LoadingElement = ({size=40}) => {
@@ -39,13 +38,23 @@ const App = () => {
             .appendTo('#dashboard-div')
             .build()
             .connect()
-            // .then()
+            // .then(setupJSListen)
             .catch((error) => {
                 console.error('An unexpected error occurred', error)
             })
             setIsLoading(false)
         return () =>  document.querySelector('#dashboard-div').innerHTML = ''
     }, [])
+
+    // const setupJSListen = () => {
+    //     window.addEventListener("message", (event) => {
+    //         console.log(event.source)
+    //         console.log(document.getElementById("dashboard-div").firstChild)
+    //         if (event.source === document.getElementById("dashboard-div").firstChild.contentWindow) {
+    //             console.log(JSON.parse(event.data));
+    //         }
+    //       });
+    // }
 
     return (
         <ComponentsProvider>

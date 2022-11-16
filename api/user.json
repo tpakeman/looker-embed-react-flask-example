@@ -16,5 +16,6 @@
   "group_ids": [9],
   "user_attributes": {},
   "external_group_id": "embed_group_1",
-  "force_logout_login": true
+  "force_logout_login": true,
+  "session_length": 2592000
 }
