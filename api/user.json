@@ -1,0 +1,20 @@
+{
+  "external_user_id": "embed_user_from_react_app",
+  "first_name": "Embed",
+  "last_name": "User",
+  "permissions": [
+    "access_data",
+    "see_lookml_dashboards",
+    "see_looks",
+    "see_user_dashboards",
+    "see_drill_overlay",
+    "embed_browse_spaces",
+    "explore",
+    "save_content"
+  ],
+  "models": ["sandbox"],
+  "group_ids": [9],
+  "user_attributes": {},
+  "external_group_id": "embed_group_1",
+  "force_logout_login": true
+}
