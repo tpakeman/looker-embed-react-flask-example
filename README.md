@@ -29,7 +29,9 @@ _This repository contains all of the elements needed to run a simple web applica
   * `yarn install`
 * Install the python dependencies in the api folder using a pipenv virtual environment
   * `cd api`
-  * `pipenv install`
+  * `pipenv shell` to initialise a python virtual environment
+  * `pipenv install` to install the dependencies
+  * `CTRL + D` to exit the virtual environment
 * Update the value of `DASHBOARD_ID` in `src/App.js` on line 6 
 
 ## Usage
